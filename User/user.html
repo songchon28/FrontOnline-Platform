@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Account Settings UI Design</title>
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="fontawesome/css/all.min.css">
+	<link rel="stylesheet" type="text/css" href="css/account.css">
+	
+</head>
+<body>
+    <!-- Page Loader -->
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+
+    </div>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-book-reader ml-3"></i>
+                Open-Learning
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link nav-link-1" href="index.html">คอร์สเรียนทั้งหมด</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-link-2" href="about.html">เกี่ยวกับ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-link-3"  href="contact.html">ติดต่อ</a>
+                </li>
+                <li class="nav-item">
+                    <img src="css/img/img_avatar.png" alt="Avatar" class="avatar">
+                </li>
+            </ul>
+            </div>
+        </div>
+    </nav>
+
+<body>
+	<section class="row py-5 my-5">
+		<div class="container col-sm-8">
+			<h1 class="mb-5"></h1>
+			<div class="bg-white shadow rounded-lg d-block d-sm-flex">
+				<div class="profile-tab-nav border-right">
+					<div class="p-4">
+						<div class="img-circle text-center mb-3">
+							<img src="css/img/user2.jpg" alt="Image" class="shadow">
+						</div>
+						<h4 class="text-center">Kiran Acharya</h4>
+					</div>
+					<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+						<a class="nav-link active" id="account-tab" data-toggle="pill" href="#account" role="tab" aria-controls="account" aria-selected="true">
+							<i class="fas fa-user text-center mr-2"></i> 
+							บัญชีผู้ใช้
+						</a>
+						
+						<a class="nav-link" id="security-tab" data-toggle="pill" href="#security" role="tab" aria-controls="security" aria-selected="false">
+							<i class="fas fa-book text-center mr-2"></i> 
+							คอร์สเรียน
+						</a>
+						<a class="nav-link" id="application-tab" data-toggle="pill" href="#application" role="tab" aria-controls="application" aria-selected="false">
+							<i class="fas fa-wallet text-center mr-2"></i> 
+							ประวัติการชำระเงิน
+						</a>
+					
+					</div>
+				</div>
+				<div class="tab-content p-4 p-md-5" id="v-pills-tabContent">
+					<div class="tab-pane fade show active" id="account" role="tabpanel" aria-labelledby="account-tab">
+						<h3 class="mb-4">การติดตั้งบัญชีผู้ใช้</h3>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+								  	<label>ชื่อ</label>
+								  	<input type="text" class="form-control" value="Kiran">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+								  	<label>นามสกุล</label>
+								  	<input type="text" class="form-control" value="Acharya">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+								  	<label>อีเมล</label>
+								  	<input type="text" class="form-control" value="kiranacharya287@gmail.com">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+								  	<label>หมายเลขโทรศัพท์</label>
+								  	<input type="text" class="form-control" value="+91 9876543215">
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-12 text-right">
+								<button class="btn btn-outline-dark">
+									<i class="fas fa-times"></i>
+									ยกเลิก
+								</button>
+								<button class="btn btn-success">
+									<i class="fas fa-save"></i>
+									อัพเดท
+								</button>
+							</div>
+
+						</div>
+						
+					</div>
+					<div class="tab-pane fade" id="security" role="tabpanel" aria-labelledby="security-tab">
+						<h3 class="mb-4">คอร์สเรียน</h3>
+						<div class="row">
+							<div class="container bg-success mb-2">
+								<h1>My First Bootstrap Page</h1>
+								<p>This part is inside a .container class.</p> 
+								
+							</div>
+				
+							<div class="container bg-success">
+								<h1>My First Bootstrap Page2</h1>
+								<p>This part is inside a .container class.</p> 
+								
+							</div>
+						</div>
+					</div>
+					<div class="tab-pane fade" id="application" role="tabpanel" aria-labelledby="application-tab">
+						<h3 class="mb-4">ประวัติชำระเงิน</h3>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									
+								</div>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<! DOCTYPE html>  
+<html>  
+<head>  
+  <meta charset = "UTF-8">  
+  <meta name = "viewport" content = "width=device-width, initial-scale=1.0">  
+  <meta http-equiv = "X-UA-Compatible" content = "ie=edge">  
+  <title>หน้าชำระเงิน</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="css/templatemo-style.css">  
+<style>  
+.qr-code {  
+    max-width: 6200px; 
+    margin: 10px;  
+    } 
+.tm-qrcode {
+    margin-top: 200px;
+    font-size: 1.8rem;
+} 
+body {  
+    background-color: #b2b2b2;  
+    justify-content: center;      
+    color: black;    
+    text-align: center;
+}
+.container {
+    max-width: 1000px;
+    height: 650px;
+}
+</style> 
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                
+                Open-Learning
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+        
+        </div>
+    </nav>
+    <div class="tm-qrcode container bg-white">
+        <br>
+        <div>กรุณาทำการสแกน QRCODE เพื่อชำระเงินภายใน <span id="time"></span>
+            นาที</div>
+        <img src =  "https://chart.googleapis.com/chart?cht=qr&chl=Hello+World&chs=490x490&chld=L|0" class = "qr-code img-thumbnail img-responsive" />  </div>
+    </div>
+    
+
+    <script src = "https://code.jquery.com/jquery-3.5.1.js"></script>  
+    <script>
+    function startTimer(duration, display) {
+        var start = Date.now(),
+            diff,
+            minutes,
+            seconds;
+        function timer() {
+            // get the number of seconds that have elapsed since 
+            // startTimer() was called
+            diff = duration - (((Date.now() - start) / 1000) | 0);
+
+            // does the same job as parseInt truncates the float
+            minutes = (diff / 60) | 0;
+            seconds = (diff % 60) | 0;
+
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            display.textContent = minutes + ":" + seconds; 
+
+            if (diff <= 0) {
+                // add one second so that the count down starts at the full duration
+                // example 05:00 not 04:59
+                start = Date.now() + 1000;
+            }
+        };
+        // we don't want to wait a full second before the timer starts
+        timer();
+        setInterval(timer, 1000);
+    }
+
+    window.onload = function () {
+        var fiveMinutes = 60 * 5,
+            display = document.querySelector('#time');
+        startTimer(fiveMinutes, display);
+    };
+
+    setTimeout(function () {
+    window.location.href= 'video-detail.html';
+
+    }, 300000);
+
+        $(function () {  
+        $('#generate').click(function () {        
+            let finalURL =  
+    'https://chart.googleapis.com/chart?cht=qr&chl=' +  
+            htmlEncode($('#content').val()) +  
+            '&chs=160x160&chld=L|0'   
+            $('.qr-code').attr('src', finalURL);  
+        });  
+        });  
+</script>  
+</body>  
+</html>  

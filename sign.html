@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login & Registration Form</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <form @submit.prevent="submitForm">
+    <form id="login">
+      <div class="cont">
+        <div id="login" class="form sign-in">
+          <h2>เข้าสู่ระบบ</h2>
+          <label>
+            <span>อีเมล</span>
+            <input type="email" name="email">
+          </label>
+          <label>
+            <span>รหัสผ่าน</span>
+            <input type="password" name="password">
+          </label>
+          
+          <button type="submit" class="btn btn-primary" formaction="./User/index.html">เข้าสู่ระบบ</button>
+        
+          <p class="forgot-pass">ลืมรหัสผ่าน?</p>
+          <a class="btn btn-primary tm-btn-next" href="./User/admin_user.html">เข้าสู่ระบบแอดมิน</a>
+        </div>
+    </form>
+    <form id="sign">
+        <div class="sub-cont">
+          <div class="img">
+            <div class="img-text m-up">
+              <h2>สมาชิกใหม่?</h2>
+              <p>ลงทะเบียนและค้นพบโอกาสใหม่ๆ มากมาย!</p>
+            </div>
+            <div class="img-text m-in">
+              <h2>สมัครบัญชีแล้ว?</h2>
+              <p>หากคุณมีบัญชีอยู่แล้ว เพียงลงชื่อเข้าสู่ระบบ เราคิดถึงคุณแล้ว!</p>
+            </div>
+            <div class="img-btn">
+              <span class="m-up">สมัครสมาชิก</span>
+              <span class="m-in">เข้าสู่ระบบ</span>
+            </div>
+          </div>
+          <div class="form sign-up">
+            <h2>สมัครสมาชิก</h2>
+            <label>
+              <span>ชื่อ</span>
+              <input name="first_name" type="text">
+            </label>
+            <label>
+              <span>นามสกุล</span>
+              <input name="last_name" type="text">
+            </label>
+            <label>
+              <span>อีเมล</span>
+              <input name="email" type="email">
+            </label>
+            <label>
+              <span>รหัสผ่าน</span>
+              <input name="password" type="password" >
+            </label>
+            
+            <button type="submit" class="btn btn-primary">สมัครสมาชิก</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </form>
+  
+<script type="text/javascript" src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+
+    const sign = document.querySelector('#sign');
+    sign.addEventListener('submit', handleSubmit);
+
+    async function handleSubmit(event) {
+    event.preventDefault();
+    const formData = new FormData(sign);
+    const data = Object.fromEntries(formData); 
+    const new_data = {
+                      "permission": 1,
+                      "email": "qwer@gmail.com",
+                      "firstname": "qwerqwerq",
+                      "surname": "qwerqwerq",
+                      "password": "qwerqwerq123",
+                  
+                    }
+    console.log(typeof(new_data.firstname))
+    console.log(typeof(new_data.surname))
+    console.log(typeof(new_data.email))
+    console.log(typeof(new_data.password))
+    const jsonData = JSON.stringify(new_data);
+    console.log(jsonData);
+    console.log(formData);                
+
+    const CSRFtoken = function() {
+      return decodeURIComponent((document.cookie.match('(^|;) _csrf_token=([^;])') || '')[2])
+    }               
+
+    // fetch("http://192.168.1.40:8000/userGet/", {
+
+
+    //     method: 'POST',
+    //     mode: "no-cors",
+    //     headers: {
+    //         'Content-Type': 'application/json',
+    //         'accept': 'application/json',
+    //         'Access-Control-Allow-Origin' : '*',
+    //         'Access-Control-Allow-Credentials': true, 
+    //         'Access-Control-Expose-Headers': '*' 
+            
+            
+          
+    //     },
+        
+    // })
+        
+    // }
+
+    const response = await fetch("http://127.0.0.1:8000/register/", {
+    
+    
+    method: 'POST',
+    mode: "no-cors",
+    headers: {
+        'Content-Type': 'application/json',
+        'accept': 'application/json',
+        'Access-Control-Allow-Origin' : '*',
+        'Access-Control-Allow-Credentials': true, 
+        'Access-Control-Expose-Headers': '*' 
+        
+    },
+    body: jsonData
+    })
+    const json = await response.json()
+    console.log(json)
+
+  }
+
+  
+    /*{
+  "firstname": {},
+  "surname": "string",
+  "email": "string",
+  "password": "string",
+}*/
+    /*
+    var inputData = {
+      name: document.getElementById('nameId').value,
+      surName: document.getElementById('surNameId').value,
+      email: document.getElementById('emailId').value,
+      ...
+    } -> JavaScript object
+
+    // Send POST request
+      fetch('http://127.0.0.1:8000/register/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: inputData,
+      })
+        .then(response => response.json())
+        .then(data => {
+          // Process response data
+          string email = response.registerData.email;
+          console.log(email);
+        })
+        .catch(error => {
+          // Handle error
+          console.writeline('Error has been summoned -> check query!')
+          console.error('Error:', error);
+        });
+
+    */    
+</script>
+</body>
+</html>
